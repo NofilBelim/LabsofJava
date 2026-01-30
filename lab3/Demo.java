@@ -1,0 +1,107 @@
+abstract class Figure {
+    double pi = 3.1420;
+    double a, v;
+
+    public abstract void calcArea();
+    public abstract void calcVol();
+    public abstract void dispArea();
+    public abstract void dispVol();
+}
+
+class Cone extends Figure {
+    double r, s, h;
+
+    Cone(double r, double h) {
+        this.r = r;
+        this.h = h;
+        this.s = Math.sqrt((r * r) + (h * h));
+    }
+
+    public void calcArea() {
+        a = (pi * r * s) + (pi * r * s);
+    }
+
+    public void calcVol() {
+        v = (pi * r * h) / 3;
+    }
+
+    public void dispArea() {
+        System.out.println("Cone Area = " + a);
+    }
+
+    public void dispVol() {
+        System.out.println("Cone Volume = " + v);
+    }
+}
+
+class Sphere extends Figure {
+    double r;
+
+    Sphere(double r) {
+        this.r = r;
+    }
+
+    public void calcArea() {
+        a = 4 * pi * r * r;
+    }
+
+    public void calcVol() {
+        v = (4 * pi * r * r * r) / 3;
+    }
+
+    public void dispArea() {
+        System.out.println("Sphere Area = " + a);
+    }
+
+    public void dispVol() {
+        System.out.println("Sphere Volume = " + v);
+    }
+}
+
+class Cylinder extends Figure {
+    double r, h;
+
+    Cylinder(double r, double h) {
+        this.r = r;
+        this.h = h;
+    }
+
+    public void calcArea() {
+        a = (2 * pi * r * h) + (2 * pi * r * r);
+    }
+
+    public void calcVol() {
+        v = pi * r * r * h;
+    }
+
+    public void dispArea() {
+        System.out.println("Cylinder Area = " + a);
+    }
+
+    public void dispVol() {
+        System.out.println("Cylinder Volume = " + v);
+    }
+}
+
+public class Demo {
+    public static void main(String[] args) {
+
+        Cone c = new Cone(7, 10);
+        c.calcArea();
+        c.calcVol();
+        c.dispArea();
+        c.dispVol();
+
+        Sphere s = new Sphere(5);
+        s.calcArea();
+        s.calcVol();
+        s.dispArea();
+        s.dispVol();
+
+        Cylinder cy = new Cylinder(4, 8);
+        cy.calcArea();
+        cy.calcVol();
+        cy.dispArea();
+        cy.dispVol();
+    }
+}
